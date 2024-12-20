@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录</title>
+    <link rel="stylesheet" href="szys.css">
+</head>
+<body>
+    <!-- 退出按钮 -->
+    <div class="exit-btn-container">
+        <button class="exit-btn" onclick="window.location.href='sy.html'">返回首页</button>
+    </div>
+    <div class="history-container">
+        <!-- 标题 -->
+        <h2 class="history-title">历史记录</h2>
+        
+        <!-- 包含滚动表格的容器 -->
+        <div class="history-table-container">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>得分</th>
+                        <th>日期</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                    <!-- 历史记录将动态添加到这里 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // 获取历史记录并更新页面表格
+        function updateHistoryTable() {
+            const historyTableBody = document.getElementById('history-table-body');
+            let historyRecords = JSON.parse(localStorage.getItem('historyRecords')) || []; // 从 localStorage 获取历史记录
+
+            // 清空表格内容
+            historyTableBody.innerHTML = '';
+
+            // 如果没有历史记录
+            if (historyRecords.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="3">没有历史记录</td>';
+                historyTableBody.appendChild(row);
+                return;
+            }
+
+            // 遍历历史记录并填充表格
+            historyRecords.forEach((record, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${record.score}</td>
+                    <td>${record.time}</td>
+                `;
+                historyTableBody.appendChild(row);
+            });
+        }
+
+        // 页面加载时初始化历史记录表格
+        window.onload = function () {
+            updateHistoryTable();  // 加载历史记录并更新表格
+        };
+    </script>
+</body>
+</html>

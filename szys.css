@@ -1,0 +1,243 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 引入 Google 字体 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600&display=swap');
+
+/* 页面基本样式 */
+body {
+    font-family: 'Roboto', sans-serif; /* 使用更现代的字体 */
+    background: linear-gradient(135deg, #710094, #edd3ff); /* 紫色渐变背景 */
+    color: #4c005c; /* 白色文字 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+/* 退出按钮 */
+.exit-btn-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.exit-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #ecc1ea; /* 淡紫色 */
+    color: rgb(143, 0, 136);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exit-btn:hover {
+    background-color: #c289e6; /* 更深的紫色 */
+    transform: scale(1.1); /* 增加按钮的放大效果 */
+}
+
+/* 主容器 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+}
+
+/* 四则运算题目界面 */
+.quiz-section {
+    background-color: rgba(246, 224, 255, 0.95); /* 半透明白色 */
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgb(214, 182, 245);
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    backdrop-filter: blur(8px); /* 增加模糊背景效果 */
+}
+
+/* 标题样式 */
+h2 {
+    color: #ee7ebf; /* 紫色标题 */
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* 使用更具现代感的字体 */
+}
+
+/* 输入框样式 */
+input {
+    width: 70%;
+    padding: 14px;
+    margin-top: 15px;
+    font-size: 16px;
+    border: 2px solid #9e59d9;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    border-color: #ecaefc; /* 深紫色 */
+    box-shadow: 0 0 8px rgba(152, 124, 197, 0.8); /* 聚焦时增加阴影效果 */
+}
+
+/* 按钮样式 */
+button {
+    padding: 14px 28px;
+    margin-top: 25px;
+    font-size: 18px;
+    background-color: #ddb2e7; /* 紫色按钮 */
+    color: rgb(93, 59, 105);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #f782ca; /* 更深的紫色 */
+    transform: scale(1.05); /* 增加按钮的放大效果 */
+}
+
+/* 文本 */
+p {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #423838; /* 更柔和的灰色 */
+}
+
+/* 弹出结算窗口 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 450px;
+}
+
+.modal-content h3 {
+    color: #f58dc1; /* 紫色标题 */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    color: #333;
+}
+
+.modal button {
+    padding: 12px 30px;
+    margin-top: 25px;
+    background-color: #b559d9a2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #ad5edf;
+}
+
+/* 容器样式，用于包含表格和标题 */
+.history-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* 设置表格容器的最大宽度 */
+    margin: 0 auto; /* 居中显示容器 */
+    padding-top: 50px; /* 给标题留出空间 */
+}
+
+/* 容器样式，用于包含表格和标题 */
+.history-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* 设置表格容器的最大宽度 */
+    margin: 0 auto; /* 居中显示容器 */
+    padding-top: 50px; /* 给标题留出空间 */
+    box-sizing: border-box;
+}
+
+/* 标题样式 */
+.history-title {
+    position: absolute;
+    left: 0;
+    top: 10%; /* 垂直居中 */
+    transform: translateY(-50%); /* 精确垂直居中 */
+    font-size: 40px;
+    font-weight: 600;
+    color: #fefdff;
+    margin-left: 150px; /* 左侧留出间距 */
+}
+
+/* 容器内的表格滚动设置 */
+.history-table-container {
+    width: 100%;
+    max-height: 500px; /* 设置表格容器的最大高度 */
+    overflow-y: auto; /* 启用垂直滚动 */
+    margin-top: 80px; /* 给表格留出空间，避免与标题重叠 */
+    border: 1px solid #ddd; /* 边框样式 */
+    padding: 10px;
+}
+
+/* 历史记录表格 */
+#history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#history-table th, #history-table td {
+    padding: 12px 20px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+#history-table th {
+    background-color: #f2f2f2;
+    color: #c285da;
+    font-weight: 600;
+}
+
+#history-table td {
+    background-color: #fff;
+}
+
+/* 表格行高亮效果 */
+#history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#history-table tr:hover {
+    background-color: #f0f0f0;
+}
